@@ -1,16 +1,24 @@
 
 import './ExpenseItems.css';
+import ExpenseDate from './ExpenseDate';
 
-function ExpenseItems(){
-   return (
-         <div className="expense-items">
-            <div>March 12th 2023</div>
+
+function ExpenseItems(props){
+      // let {month,year,date} = {props.}
+      const expenses = props.allExpenses;
+
+      for(let i=0; i<expenses.length; i++){
+            const expense = expenses[i];
+            let {id,title, amount, date} = expense;
+         return(<div className="expense-items">
             <div className='expense-description'>
-                  <h2>Car Serives</h2>
-                  <p>$200</p>
+                  <h2> {title} </h2>
+                  <ExpenseDate date={date} />
+                  <p>Amount: $: {amount} </p>
             </div>
-         </div>
-         )
+         </div>)
+      }
+      
 }
 
 export default ExpenseItems
