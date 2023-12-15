@@ -31,6 +31,7 @@ function makeNeworder(access_token, amount, address){
     })
 };
 
+// checkout api services
 function userCheckoutService(access_token, address_id){
     const auth_headers = {'Authorization': `Bearer ${access_token}`};
 

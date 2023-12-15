@@ -8,18 +8,20 @@ import {
     MDBBtn
   } from 'mdb-react-ui-kit';
   
-import { userCheckoutService } from '../../ApiServices/AuthenticatedServices/AuthenticatedServices';
+import { userCheckoutService, makeNeworder } from '../../ApiServices/AuthenticatedServices/AuthenticatedServices';
 
 function MakeOrder(){
     const [amount, setAmount] = useState('');
     const [address_id, setAddressId] = useState('');
     const access_token = localStorage.getItem('access_token');
+    const [orderId, setOrderId] = useState('');
+    const [orderDetails, setOrderDetails] = useState('');
 
-
+    // making request to checkout api
     useEffect( () => {
         userCheckoutService(access_token, 1).then( response => {
             if(response.status == 200){
-                console.log(response.data)
+                // console.log(response.data)
                 setAmount(response.data.total_price)
                 setAddressId(response.data.delivery_address.id
                     )
@@ -34,7 +36,39 @@ function MakeOrder(){
 
     }, [access_token] )
 
-    console.log(amount, address_id)
+    // to create new order
+    function createNewOrder(){
+        if (amount >= 1 && address_id){
+            console.log('\n... Creating new Order ID')
+            // then make new order using api
+            makeNeworder(access_token, amount, address_id).then( response => {
+                if(response.status == 200){
+                    console.log('\n...Congrats Order is created \n')
+                    console.log(response.data.order_details)
+                    setOrderDetails(response.data.order_details)
+                    setOrderId(orderDetails.id ? orderDetails.id :  '')
+                    
+
+                }
+            },
+            (errors) => {
+                console.log('\n...Soory Order creation is failed \n')
+
+                console.log(errors.response)
+            }  )
+
+
+
+
+
+        }else{
+            console.log('Amount and Address id is required')
+            return
+        }
+        
+    }
+
+    console.log(orderDetails.id)
     return(
         <div>
 
@@ -44,7 +78,7 @@ function MakeOrder(){
                 <MDBCardBody>
                     <MDBCardTitle>Total Price: {amount} </MDBCardTitle>
                     
-                    <MDBBtn className="mt-5">Order Now</MDBBtn>
+                    <MDBBtn className="mt-5" onClick={createNewOrder}>Order Now</MDBBtn>
                 </MDBCardBody>
             </MDBCard>
 
