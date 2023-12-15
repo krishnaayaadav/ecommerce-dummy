@@ -43,9 +43,19 @@ function userCheckoutService(access_token, address_id){
 
     })
 
+};
+
+// check payment status
+function checkPaymentStatus(access_token, payment_data){
+    return axios({
+        method: 'post',
+        url: base_url + '/api/order/confirm/order/',
+        data: payment_data
+    })
 }
 export {
-    makeNeworder,
-    userDashbaordService,
-    userCheckoutService,
+    userDashbaordService, // user dashboard api
+    makeNeworder,         // make new order api
+    userCheckoutService,  // checkout api 
+    checkPaymentStatus    // check payment status api
 }
