@@ -1,11 +1,14 @@
 import './App.css';
 
 import axios from 'axios';
+import BasicUI from './Components/BasicUI/BasicUI';
 
 function App() {
   
-  return (<div className='expenses'>
-              <h2>User Expense List</h2>
+  return (
+          <div className='expenses'>
+            <BasicUI />
+            
           </div>
   );
 }
