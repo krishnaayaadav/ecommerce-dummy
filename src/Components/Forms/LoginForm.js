@@ -12,10 +12,10 @@ import './LoginForm.css';
 import { LoginApiServices } from '../../ApiServices/NonAuthServices/LoginApiSerives';
 
 export default function LoginForm() {
-  const [email, setEmail] = useState('krishna777@gmail.com');
+  const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
  
-  const [password, setPassword] = useState('Krishna777');
+  const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
   const [nonFieldErrors, setNonFieldErrors] = useState('');
@@ -46,6 +46,7 @@ export default function LoginForm() {
         setSuccessMsg(msg)
         setEmail('');
         setPassword('')
+        setNonFieldErrors('')
       }
     },
      // handling errors

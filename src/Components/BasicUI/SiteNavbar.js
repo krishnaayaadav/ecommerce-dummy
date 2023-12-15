@@ -24,7 +24,7 @@ export default function SiteNavbar() {
   return (
     <MDBNavbar expand='lg' light bgColor='light'>
       <MDBContainer fluid>
-        <MDBNavbarBrand > <Link to={'/'}>Kreomart.Com</Link> </MDBNavbarBrand>
+        <MDBNavbarBrand > <Link to={'/'}>Shopper.Com</Link> </MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
@@ -51,7 +51,7 @@ export default function SiteNavbar() {
             <MDBNavbarItem>
               <MDBDropdown>
                 <MDBDropdownToggle tag='a' className='nav-link' role='button'>
-                  Dropdown
+                <Link to={'user/accounts/dashboard'}>  Dashboard </Link>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
                   <MDBDropdownItem link>Action</MDBDropdownItem>
