@@ -9,7 +9,5 @@ hmtl{
 }
 
 body{
-  margin: 0;
-  padding: 0;
-  background-color: #3f3f3f;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
 }
