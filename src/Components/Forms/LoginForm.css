@@ -1,0 +1,12 @@
+.form-errors{
+    padding: 5px;
+    color: red;
+}
+
+.form-success{
+    padding: 5px;
+    color: rgb(7, 208, 7);
+}
+.errors{
+    display: none;
+}
