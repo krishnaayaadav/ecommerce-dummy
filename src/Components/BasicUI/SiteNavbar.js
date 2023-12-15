@@ -54,7 +54,7 @@ export default function SiteNavbar() {
                 <Link to={'user/accounts/dashboard'}>  Dashboard </Link>
                 </MDBDropdownToggle>
                 <MDBDropdownMenu>
-                  <MDBDropdownItem link>Action</MDBDropdownItem>
+                  <MDBDropdownItem link><Link to={'user/make/new/order'}> New Order </Link></MDBDropdownItem>
                   <MDBDropdownItem link>Another action</MDBDropdownItem>
                   <MDBDropdownItem link>Something else here</MDBDropdownItem>
                 </MDBDropdownMenu>

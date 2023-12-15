@@ -6,6 +6,7 @@ import LoginForm from "../Forms/LoginForm";
 
 // for authenticated users
 import UserDashboard from "../AuthenticatedUser/UserDashboard";
+import MakeOrder from "../AuthenticatedUser/MakeOrder";
 
 import { Routes, Route } from 'react-router-dom';
 class BasicUI extends React.Component{
@@ -22,6 +23,7 @@ class BasicUI extends React.Component{
                 <Routes>
                     <Route path="user/accounts/login" element={ <LoginForm /> } />
                     <Route path="user/accounts/dashboard" element={ <UserDashboard /> } />
+                    <Route path="user/make/new/order" element = { <MakeOrder /> } />
                 </Routes>
                 </div>
 
