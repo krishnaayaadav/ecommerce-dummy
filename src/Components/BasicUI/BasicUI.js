@@ -2,6 +2,9 @@ import React from "react";
 
 import SiteNavbar from "../MainComponents/SiteNavbar";
 import SiteFooter from "../MainComponents/SiteFooter";
+import LoginForm from "../Forms/LoginForm";
+
+import { Routes, Route } from 'react-router-dom';
 class BasicUI extends React.Component{
 
     constructor(props){
@@ -12,8 +15,13 @@ class BasicUI extends React.Component{
         return(
             <div>
                 <SiteNavbar />
-                <SiteFooter />
                 
+                <Routes>
+                    <Route path="user/accounts/login" element={ <LoginForm /> } />
+                </Routes>
+
+
+                <SiteFooter />
             </div>
         )
     }
