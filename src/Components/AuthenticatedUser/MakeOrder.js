@@ -74,9 +74,10 @@ function MakeOrder(){
                           
                           // razorpay data after successfull payment
                           const payment_data = {
-                            razorpay_order_id:   response.razorpay_order_id,
-                            razorpay_signature:  response.razorpay_signature,
-                            razorpay_payment_id: response.razorpay_payment_id
+                            razorpay_order_id:      response.razorpay_order_id,
+                            razorpay_signature_id:  response.razorpay_signature,
+                            razorpay_payment_id:    response.razorpay_payment_id,
+                            amount:                 amount
 
                           }
                         // const payment_data = {}
@@ -88,7 +89,7 @@ function MakeOrder(){
                                 console.log(response.data)
                             }
                           }, (errors) => {
-                            console.log(errors.response)
+                            console.log(errors.response.data)
                           } )
                         },
                        

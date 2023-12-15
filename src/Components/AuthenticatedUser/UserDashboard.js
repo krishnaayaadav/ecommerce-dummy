@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-import { userDashbaordService } from '../../ApiServices/AuthenticatedServices/AuthenticatedServices';
+import { userDashbaordService, checkPaymentStatus  } from '../../ApiServices/AuthenticatedServices/AuthenticatedServices';
 
 function UserDashboard(){
     const [isAuthenticated, setAuthentication] = useState(false);
@@ -23,7 +23,6 @@ function UserDashboard(){
 
 
     }, [access_token])
-
    
 
     return(

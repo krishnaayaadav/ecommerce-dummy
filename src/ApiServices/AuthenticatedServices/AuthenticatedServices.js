@@ -47,10 +47,13 @@ function userCheckoutService(access_token, address_id){
 
 // check payment status
 function checkPaymentStatus(access_token, payment_data){
+    const auth_headers = {'Authorization': `Bearer ${access_token}`};
+
     return axios({
         method: 'post',
         url: base_url + '/api/order/confirm/order/',
-        data: payment_data
+        data: payment_data,
+        headers: auth_headers
     })
 }
 export {
